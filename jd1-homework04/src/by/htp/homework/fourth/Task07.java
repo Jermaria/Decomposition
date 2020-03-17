@@ -19,10 +19,7 @@ public class Task07 {
 		
 		arrayInit(distance, x, y);
 		
-		double max;
-		max = findMax(distance);
-		
-		System.out.println("max = " + max);	
+		showCoordinates(distance, x, y);	
 	}
 	
 	public static int arrayLength(double[] a, double[] b) {
@@ -57,16 +54,33 @@ public class Task07 {
 		}
 	}
 	
-	public static double findMax(double[] array) {
+	public static double findIndexOfMax(double[] array) {
 		double max;
+		int indexOfMax;
 
 		max = array[0];
+		IndexOfMax = 0;
 		
 		for (int i = 1; i < array.length; i++) {
 			if (array[i] > max) {
 				max = array[i];
+				indexOfMax = i;
 			}
 		}
-		return max;
+		return indexOfMax;
+	}
+	
+	public static void showCoordinates(double[] array, double[] a, double[] b) {
+		
+		int index;
+		index = 0;
+		for (int i = 0; i < a.length-1; i++) {
+			for (int j = i + 1; j <b.length; j++) {
+				if (index == findIndexOfMax(array) ) {
+					System.out.println("between coordinates (" + a[i] + ";" + b[i] + ") and (" + a[j] + ";" + b[j] + ")");
+				}
+				index++;	
+			}
+		}
 	}
 }
